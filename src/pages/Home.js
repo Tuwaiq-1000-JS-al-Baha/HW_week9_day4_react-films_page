@@ -10,8 +10,8 @@ function Home() {
         <Row>
           <MovieList listTitle="What's Popular" />
           <MovieList listTitle="Action" genreType="Action" />
-          <MovieList listTitle="Drama" genreType="Drama" />
-          <MovieList listTitle="Comedy" genreType="Comedy" />
+          <MovieList listTitle="Drama" genreType="drama" />
+          <MovieList listTitle="Comedy" genreType="comedy" />
         </Row>
       </Container>
     </>

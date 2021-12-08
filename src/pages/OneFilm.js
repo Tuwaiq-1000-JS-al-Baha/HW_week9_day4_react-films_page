@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Card } from "react-bootstrap"
+import { Card, Col, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import FilmsContext from "../utils/FilmsContext"
@@ -12,17 +12,32 @@ function OneFilm() {
   const film = films.find(film => film._id === filmId)
   return (
     <>
-      <Card border="light">
-        <Link to={`/film/${film._id}`}>
-          <Card.Img variant="top" src={film.poster} height="220px" style={{ borderRadius: "10px" }} />
-        </Link>
-        <Card.Body>
-          <Link to={`/film/${film._id}`} className="text-black" style={{ textDecoration: "none" }}>
-            <Card.Title>{film.title}</Card.Title>
-          </Link>
-          <Card.Text className="text-muted">{film.description}</Card.Text>
-        </Card.Body>
+      <Card border="light">  
+      <Row className="mt-5 mx-5 bg-light">
+        <Col >
+            <img variant="top" src={film.poster} height="400px" style={{ borderRadius: "10px", width: 400 }} />
+          </Col>
+          <Col >
+          <div className="mt-5 ">
+            <h3>{film.title}</h3>
+            <span>Rate: {film.ratingAverage}</span>
+            <br />
+            {film.genres.map(genre => (
+              <p>{genre.name} </p>
+            ))}
+            <p className="text-muted">{film.description}</p>
+            <h4>
+              {film.director.firstName} {film.director.lastName}
+            </h4>
+            <span className="text-muted">Director</span>
+          </div>
+          
+          
+        </Col>
+      </Row>
+        
       </Card>
+      
     </>
   )
 }
