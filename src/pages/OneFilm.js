@@ -2,7 +2,9 @@ import { useContext } from "react"
 import { Card, Row, Col, Image } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
+// import FilmsContext from "../utils/FilmsContext"
 import FilmsContext from "../utils/FilmsContext"
+
 
 function OneFilm() {
   const { filmId } = useParams()
