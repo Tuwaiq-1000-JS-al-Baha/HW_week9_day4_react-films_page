@@ -11,7 +11,7 @@ function App() {
   const [films, setFilms] = useState([])
 
   const getFilms = async () => {
-    const response = await axios.get("http://localhost:5000/api/films")
+    const response = await axios.get("http://localhost:5000/api/film")
     setFilms(response.data)
   }
 
