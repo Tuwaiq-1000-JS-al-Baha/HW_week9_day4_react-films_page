@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import FilmsContext from "./utils/FilmsContext"
 import OneFilm from "./pages/OneFilm"
+import Cast from "./components/Cast"
 
 function App() {
   const [films, setFilms] = useState([])
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/film/:filmId" element={<OneFilm />} />
+        <Route path="/cast/:actorId" element={<Cast />} />
       </Routes>
     </FilmsContext.Provider>
   )
