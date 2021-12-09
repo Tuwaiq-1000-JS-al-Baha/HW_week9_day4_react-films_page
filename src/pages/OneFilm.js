@@ -18,7 +18,7 @@ function OneFilm() {
           opacity: "0.3",
           height: "500px",
           width: "100%",
-          backgroundImage:` url:({film.poster})`,
+          backgroundImage:` url("${film.poster}")`,
           position: "absolute",
           left: "0",
           backgroundRepeat: "no-repeat",
