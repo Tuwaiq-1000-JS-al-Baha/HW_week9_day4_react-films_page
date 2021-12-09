@@ -6,12 +6,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import FilmsContext from "./utils/FilmsContext"
 import OneFilm from "./pages/OneFilm"
-
 function App() {
   const [films, setFilms] = useState([])
 
   const getFilms = async () => {
-    const response = await axios.get("http://localhost:5000/api/films")
+    const response = await axios.get("http://localhost:3000/api/film")
     setFilms(response.data)
   }
 
