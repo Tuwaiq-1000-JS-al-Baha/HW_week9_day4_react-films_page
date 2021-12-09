@@ -11,7 +11,8 @@ function OneFilm() {
 
   const film = films.find(film => film._id === filmId)
   return (
-    <div
+  <>
+  <div
     style={{
       objectFit: "contain",
       opacity: "0.3",
@@ -53,7 +54,9 @@ function OneFilm() {
         </Card.Body>
       </Col>
     </Row>
-  </div>
+    </div>
+    </>
+  
      
   )
 }
