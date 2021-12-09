@@ -24,7 +24,6 @@ function OneFilm() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            opacity: "0.6",
           }}
         >
           <Col className="d-flex align-items-center" md="5">
