@@ -15,15 +15,14 @@ function OneFilm() {
       <Card className="mt-5">
         <Col
           style={{
-            backgroundImage: `url("${film.poster}" )`,
+            backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.6) 100%),  url("${film.poster}") `,
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            // height: 400,
-            // display: "flex",
-            // flexDirection: "column",
-            // justifyContent: "center",
-            opacity: "0.8",
+            height: "600px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
           <Row className="d-flex align-items-center justify-content-center">
