@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Card } from "react-bootstrap"
+import { Card, Container, Col, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import FilmsContext from "../utils/FilmsContext"
@@ -12,17 +12,50 @@ function OneFilm() {
   const film = films.find(film => film._id === filmId)
   return (
     <>
-      <Card border="light">
-        <Link to={`/film/${film._id}`}>
-          <Card.Img variant="top" src={film.poster} height="220px" style={{ borderRadius: "10px" }} />
-        </Link>
-        <Card.Body>
-          <Link to={`/film/${film._id}`} className="text-black" style={{ textDecoration: "none" }}>
-            <Card.Title>{film.title}</Card.Title>
-          </Link>
-          <Card.Text className="text-muted">{film.description}</Card.Text>
-        </Card.Body>
-      </Card>
+      <Row>
+        <Col
+          className=" m-4"
+          style={{
+            backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%),  url("${film.poster}") `,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            height: "600px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            opacity: "0.6",
+          }}
+        >
+          <Col className="d-flex align-items-center" md="5">
+            <Link to={`/film/${film._id}`}>
+              <Col className="mt-5 mb-5 ms-5 md-3">
+                <Card.Img
+                  variant="top"
+                  border="light"
+                  src={film.poster}
+                  height="400px"
+                  style={{ borderRadius: "10px" }}
+                />
+              </Col>
+            </Link>
+            <Col>
+              <Card.Body>
+                <Link to={`/film/${film._id}`} className="text-black" style={{ textDecoration: "none" }}>
+                  <Col className="d-flex align-items-center" md="5">
+                    <Card.Title>{film.title}</Card.Title>
+                  </Col>
+                </Link>
+                <Card.Text className="text-muted">{film.description}</Card.Text>
+                <Card.Text className="mt-4 md-3">
+                  {film.director.firstName}
+                  {film.director.lastName}
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Col>
+        </Col>
+      </Row>
     </>
   )
 }
