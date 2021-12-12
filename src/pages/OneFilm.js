@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Card } from "react-bootstrap"
+import { Card, Col, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import FilmsContext from "../utils/FilmsContext"
@@ -12,17 +12,29 @@ function OneFilm() {
   const film = films.find(film => film._id === filmId)
   return (
     <>
-      <Card border="light">
-        <Link to={`/film/${film._id}`}>
-          <Card.Img variant="top" src={film.poster} height="220px" style={{ borderRadius: "10px" }} />
-        </Link>
-        <Card.Body>
-          <Link to={`/film/${film._id}`} className="text-black" style={{ textDecoration: "none" }}>
-            <Card.Title>{film.title}</Card.Title>
-          </Link>
-          <Card.Text className="text-muted">{film.description}</Card.Text>
-        </Card.Body>
-      </Card>
+      <Row
+        style={{
+          backgroundImage: `linear-gradient(rgba(2,25,160, 0.5), rgba(255,255,255, 0.3)),  url("${film.poster}")`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          display: "flex",
+          alignItems: "center",
+          color: "white",
+        }}
+      >
+        <Col md="4">
+          <img variant="top" src={film.poster} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
+        </Col>
+        <Col md={{ offset: 1 }}>
+          <h1>{film.title}</h1>
+          <div className="mb-2">
+            {film.genres.map(genre => (
+              <span>{genre.name}</span>
+            ))}
+          </div>
+        </Col>
+      </Row>
     </>
   )
 }
